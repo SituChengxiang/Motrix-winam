@@ -6,58 +6,37 @@
   </a>
 </p>
 
-## A full-featured download manager
+## 一款全能的下载工具
 
 [![GitHub release](https://img.shields.io/github/v/release/agalwood/Motrix.svg)](https://github.com/agalwood/Motrix/releases) ![Build/release](https://github.com/agalwood/Motrix/workflows/Build/release/badge.svg) ![Total Downloads](https://img.shields.io/github/downloads/agalwood/Motrix/total.svg) ![Support Platforms](https://camo.githubusercontent.com/a50c47295f350646d08f2e1ccd797ceca3840e52/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f706c6174666f726d2d6d61634f5325323025374325323057696e646f77732532302537432532304c696e75782d6c69676874677265792e737667)
 
-English | [简体中文](./README-CN.md)
+[English](./README-EN.md) | 简体中文
 
-Motrix is a full-featured download manager that supports downloading HTTP, FTP, BitTorrent, Magnet, etc.
+我是个兴趣使然的桌面应用开发者🤓，利用搬砖之余开发了 Motrix。
 
-Motrix has a clean and easy to use interface. I hope you will like it 👻.
+Windows ARM 版本来自于某个高三生的**寒假社会实践** 😂
 
-✈️ [Official Website](https://motrix.app) | 📖 [Manual](https://github.com/agalwood/Motrix/wiki)
+Motrix 是一款全能的下载工具，支持下载 HTTP、FTP、BT、磁力链等资源。它的界面简洁易用，希望大家喜欢 👻。
 
-## 💽 Installation
+✈️ 去 [官网](https://motrix.app/zh-CN) 逛逛  |  📖 查看 [帮助手册](http://motrix.app/support/issues)
 
-Download from [GitHub Releases](https://github.com/agalwood/Motrix/releases) and install it.
+## 💽 安装稳定版
+
+[GitHub](https://github.com/agalwood/Motrix/releases) 和 [官网](https://motrix.app/zh-CN) 提供了已经编译好的稳定版安装包，当然你也可以自己克隆代码编译打包。
 
 ### Windows
 
-It is recommended to install Motrix using the installation package (Motrix-Setup-x.y.z.exe) to ensure a complete experience, such as associating torrent files, capturing magnet links, etc.
-
-If you use package management tools to manage applications on Windows, such as [Chocolatey](https://chocolatey.org), [scoop](https://github.com/lukesampson/scoop). You can use them to install Motrix.
-
-#### Chocolatey
-Thanks to [@Yato](https://github.com/iYato) for continuing to maintain the [Motrix Chocolatey](https://community.chocolatey.org/packages/motrix) package. To install motrix, run the following command from the `command line` or from `PowerShell`:
-
-```bash
-# Install
-choco install motrix
-
-# Upgrade
-choco upgrade motrix
-```
-
-#### scoop
-If you prefer the portable version, you can use [scoop](https://github.com/lukesampson/scoop) (need Windows 7+) to install Motrix.
-
-```bash
-scoop bucket add extras
-scoop install motrix
-```
-
+使用 Release 里的安装包（Motrix-Setup-x.y.z.exe）安装 Motrix，其他版本没有ARM Build.
 ### macOS
 
-The macOS users can install Motrix using `brew`, thanks to [PR](https://github.com/Homebrew/homebrew-cask/pull/59494) of [@Mitscherlich](https://github.com/Mitscherlich).
+macOS 用户可以使用 `brew` 安装 Motrix，感谢 [@Mitscherlich](https://github.com/Mitscherlich) 的 [PR](https://github.com/Homebrew/homebrew-cask/pull/59494)。
 
 ```bash
 brew update && brew install motrix
 ```
 
-#### Auto Update
-
-Since Motrix v1.8.0 and later versions changed the App BundleID ( `net.agalwood.Motrix` => `app.motrix.native` ), the automatic update of Motrix v1.6.11 will fail. [Motrix Install Assistant](https://github.com/motrixapp/motrix-install-assistant) will help you install the latest Motrix application.
+#### 自动更新
+Motrix v1.8.0+ 版本更改了应用 BundleID ( `net.agalwood.Motrix` => `app.motrix.native` ), Motrix v1.6.11 的自动更新会因为签名不一致而失败。[Motrix 安装助手](https://github.com/motrixapp/motrix-install-assistant)将帮助您安装最新的 Motrix 应用程序。
 
 <p>
   <a href="https://github.com/motrixapp/motrix-install-assistant">
@@ -67,121 +46,127 @@ Since Motrix v1.8.0 and later versions changed the App BundleID ( `net.agalwood.
 
 ### Linux
 
-You can download the `AppImage` (for all Linux distributions) or `snap` to install Motrix, see [GitHub/release](https://github.com/agalwood/Motrix/releases) for more Linux installation package formats.
+你可以下载 `AppImage` （适用于所有 Linux 发行版）或 `snap` 来安装 Motrix，更多 Linux 安装包格式请查看 [GitHub/release](https://github.com/agalwood/Motrix/releases) 。
 
-Motrix may need to run with `sudo` for the first time in Linux because there is no permission to create the download session file (`/var/cache/aria2.session`).
+Motrix 在 Linux 中首次启动可能需要使用 `sudo` 运行，因为可能没有创建下载会话文件的权限 (`/var/cache/aria2.session`)。
 
-If you want to build from source code, please read the **Build** section.
+如果你想自己通过编译源码来安装，请阅读 **编译打包** 部分。
 
 #### AppImage
-The latest version of Motrix AppImage requires you to manually perform desktop integration. Please check the documentation of [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) .
+最新版的 Motrix AppImage 需要自己手动进执行桌面集成。请查看 [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) 的文档进行操作。
 
-> Desktop Integration
-> Since electron-builder 21 desktop integration is not a part of produced AppImage file.
-> [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) is the recommended way to integrate AppImages.
+> 桌面集成
+> electron-builder v21 之后，桌面集成不再是 AppImage 文件的一部分。
+> 推荐使用 [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) 集成 AppImage。
 
-Deepin 20 Beta users failed to install Motrix, please follow the steps below:
+Deepin 20 Beta 用户安装 Motrix 失败的问题，请按照以下方法处理：
 
-Open the `Terminal`, paste and run the following command to install Motrix again.
-
+打开`终端`，黏贴运行如下命令之后再次安装 Motrix。
 ```bash
 sudo apt --fix-broken install
 ```
 
 #### Snap
-Motrix has been listed on [Snapcraft](https://snapcraft.io/motrix) , Ubuntu users recommend downloading from the Snap Store.
+Motrix 已经上架 [Snapcraft](https://snapcraft.io/motrix) ，Ubuntu 用户推荐从 Snap 商店下载。
 
-Tips for v1.5.10
+v1.5.10 提示
 
-The tray may not display the indicator normally, which makes it inconvenient to exit the application.
+系统托盘可能无法正常显示指示器，导致退出应用程序不方便。
+请取消勾选 偏好设置——基本设置——隐藏应用程序菜单（仅限Windows和Linux），点击保存并应用。然后点击 "文件 "菜单中的 "退出"，退出应用程序。
 
-Please unchecked Preferences--Basic Settings--Hide App Menu (Windows & Linux Only), click Save & Apply. Then click "Exit" in the File menu to exit the application.
-
-Please update to v1.5.12 and above, you can use the keyboard shortcut <kbd>Ctrl</kbd> + <kbd>q</kbd> to quickly exit the application.
+请更新到 v1.5.12 及以上版本，可以使用键盘组合快捷键 <kbd>Ctrl</kbd> + <kbd>q</kbd> 快速退出应用。
 
 #### AUR
-For Arch Linux users, Motrix is available in [aur](https://aur.archlinux.org/packages/motrix/), thanks to the maintainer [@weearc](https://github.com/weearc).
+对于 Arch Linux 用户，可以使用 [aur](https://aur.archlinux.org/packages/motrix/) 安装 Motrix，感谢维护者 [@weearc](https://github.com/weearc)。
 
-Run the following command to install:
+运行以下命令进行安装：
 
 ```bash
 yay -S motrix
 ```
 
 #### Flatpak
-Thanks to the [PR](https://github.com/flathub/flathub/pull/2334) of [@proletarius101](https://github.com/proletarius101), Motrix has been listed [Flathub](https://flathub.org/apps/details/net.agalwood.Motrix), Linux users who like the Flatpak can try it.
+感谢 [@proletarius101](https://github.com/proletarius101) 的 [PR](https://github.com/flathub/flathub/pull/2334)，Motrix 已经上架 [Flathub](https://flathub.org/apps/details/net.agalwood.Motrix)，喜欢 Flatpak 的 Linux 用户可以尝试。
 
 ```bash
-# Install
+# 安装
 flatpak install flathub net.agalwood.Motrix
 
-# Run
+# 运行
 flatpak run net.agalwood.Motrix
 ```
 
-## ✨ Features
+## ✨ 特性
 
-- 🕹 Simple and clear user interface
-- 🦄 Supports BitTorrent & Magnet
-- ☑️ BitTorrent selective download
-- 📡 Update tracker list every day automatically
-- 🔌 UPnP & NAT-PMP Port Mapping
-- 🎛 Up to 10 concurrent download tasks
-- 🚀 Supports 64 threads in a single task
-- 🚥 Supports speed limit
-- 🕶 Mock User-Agent
-- 🔔 Download completed Notification
-- 💻 Ready for Touch Bar (Mac only)
-- 🤖 Resident system tray for quick operation
-- 📟 Tray speed meter displays real-time speed (Mac only)
-- 🌑 Dark mode
-- 🗑 Delete related files when removing tasks (optional)
-- 🌍 I18n, [View supported languages](#-internationalization).
-- 🛠 More features in development
+- 🕹 简洁明了的图形操作界面
+- 🦄 支持BT和磁力链任务
+- ☑️ 支持选择性下载BT部分文件
+- 📡 每天自动更新 Tracker 服务器列表
+- 🔌 UPnP & NAT-PMP 端口映射
+- 🎛 最高支持 10 个任务同时下载
+- 🚀 单任务最高支持 64 线程下载
+- 🚥 设置上传/下载限速
+- 🕶 模拟用户代理UA
+- 🔔 下载完成后通知
+- 💻 支持触控栏快捷键 (Mac 专享)
+- 🤖 常驻系统托盘，操作更加便捷
+- 📟 系统托盘速度仪表显示实时速度 (Mac 专享)
+- 🌑 深色模式
+- 🗑 移除任务时可同时删除相关文件
+- 🌍 国际化，[查看已可选的语言](#-国际化)
+- 🛠 更多特性开发中
 
-## 🖥 User Interface
+## 🖥 应用界面
 
-![motrix-screenshot-task-en.png](https://cdn.nlark.com/yuque/0/2020/png/129147/1589782238501-e7b39166-da58-4152-ae34-65a061cafa48.png)
+![motrix-screenshot-task-cn.png](https://cdn.nlark.com/yuque/0/2020/png/129147/1589782239990-fecb9065-19ac-4c35-938b-0be45621ca3a.png)
 
-## ⌨️ Development
+## ⌨️ 本地开发
 
-### Clone Code
+### 克隆代码
 
 ```bash
 git clone git@github.com:agalwood/Motrix.git
 ```
 
-### Install Dependencies
+### 安装依赖
 
 ```bash
 cd Motrix
 yarn
 ```
 
+天朝大陆用户建议使用淘宝的 npm 源
+
+```bash
+yarn config set registry 'https://registry.npmmirror.com'
+npm config set registry 'https://registry.npmmirror.com'
+export ELECTRON_MIRROR='https://npm.taobao.org/mirrors/electron/'
+export SASS_BINARY_SITE='https://npm.taobao.org/mirrors/node-sass'
+```
+
 > Error: Electron failed to install correctly, please delete node_modules/electron and try installing again
 
-`Electron` failed to install correctly, please refer to https://github.com/electron/electron/issues/8466#issuecomment-571425574
+`Electron` 下载安装失败的问题，解决方式请参考 https://github.com/electron/electron/issues/8466#issuecomment-571425574
 
-### Dev Mode
+### 开发模式
 
 ```bash
 yarn run dev
 ```
 
-### Build Release
+### 编译打包
 
 ```bash
 yarn run build
 ```
-#### Build for Apple Silicon
+#### 编译 Apple Silicon 版本
 
 ```bash
 yarn run build:applesilicon
 ```
+完成之后可以在项目的 `release` 目录看到编译打包好的应用文件
 
-After building, the application will be found in the project's `release` directory.
-
-## 🛠 Technology Stack
+## 🛠 技术栈
 
 - [Electron](https://electronjs.org/)
 - [Vue](https://vuejs.org/) + [VueX](https://vuex.vuejs.org/) + [Element](https://element.eleme.io)
@@ -189,15 +174,15 @@ After building, the application will be found in the project's `release` directo
 
 ## ☑️ TODO
 
-Development Roadmap see: [Trello](https://trello.com/b/qNUzA0bv/motrix)
+开发计划请移步 [Trello](https://trello.com/b/qNUzA0bv/motrix) 查看
 
-## 🤝 Contribute [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
+## 🤝 参与共建 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
-If you are interested in participating in joint development, PR and Forks are welcome!
+如果你有兴趣参与共同开发，欢迎 FORK 和 PR。
 
-## 🌍 Internationalization
+## 🌍 国际化
 
-Translations into versions for other languages are welcome 🧐! Please read the [translation guide](./CONTRIBUTING.md#-translation-guide) before starting translations.
+欢迎大家将 Motrix 翻译成更多的语言版本 🧐，开工之前请先阅读一下 [翻译指南](./CONTRIBUTING-CN.md#-翻译指南)。
 
 | Key   | Name                | Status       |
 |-------|:--------------------|:-------------|
@@ -228,6 +213,6 @@ Translations into versions for other languages are welcome 🧐! Please read the
 | zh-CN | 简体中文             | ✔️           |
 | zh-TW | 繁體中文             | ✔️ [@Yukaii](https://github.com/Yukaii) [@5idereal](https://github.com/5idereal) |
 
-## 📜 License
+## 📜 开源许可
 
-[MIT](https://opensource.org/licenses/MIT) Copyright (c) 2018-present Dr_rOot
+基于 [MIT license](https://opensource.org/licenses/MIT) 许可进行开源。
